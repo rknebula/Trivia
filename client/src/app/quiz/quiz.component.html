@@ -1,0 +1,17 @@
+<div id="container">
+    <h1>Good luck, {{ user.name }}!</h1>
+
+    <form #form="ngForm" (submit)="grade_quiz()">
+        <div *ngFor="let question of quizset; let idx = index">
+            <p class="question">{{idx+1}}. {{ question.question }}</p>
+                <p><input type="radio" [name]="question._id" [(ngModel)]="question.chosen" [value]="question.answer" required> {{ question.answer }}</p>
+                <p><input type="radio" [name]="question._id" [(ngModel)]="question.chosen" [value]="question.fake_answer1" required> {{ question.fake_answer1 }}</p>
+                <p><input type="radio" [name]="question._id" [(ngModel)]="question.chosen" [value]="question.fake_answer2" required> {{ question.fake_answer2 }}</p>
+        </div>
+
+        <p>
+            <a href="/">Cancel</a>
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+        </p>
+    </form>
+</div>

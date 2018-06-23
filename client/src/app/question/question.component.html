@@ -1,0 +1,28 @@
+<div id="container">
+    <p><a href="/">Home</a> | <a href="/new_question">Add a Question</a> | <a href="/logout">Logout</a></p>
+
+    <h1>New Question</h1>
+
+    <form (submit)="add_question()" #form="ngForm">
+        <p>
+            <label>Question:</label>
+            <textarea name="new_question" [(ngModel)]="question.new_question" #new_question="ngModel" minlength="15" required></textarea>
+        </p>
+        <p>
+            <label>Correct Answer:</label>
+            <input type="text" name="answer" [(ngModel)]="question.answer" #answer="ngModel" required>
+        </p>
+        <p>
+            <label>Fake Answer 1:</label>
+            <input type="text" name="fake_answer1" [(ngModel)]="question.fake_answer1" #fake_answer1="ngModel" required>
+        </p>
+        <p>
+            <label>Fake Answer 2:</label>
+            <input type="text" name="fake_answer2" [(ngModel)]="question.fake_answer2" #fake_answer2="ngModel" required>
+        </p>
+        <p>
+            <a href="/">Cancel</a>
+            <button type="submit" [disabled]="!form.valid">Add Question</button>
+        </p>
+    </form>
+</div>

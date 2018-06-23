@@ -1,0 +1,8 @@
+<h1>Login</h1>
+
+<form (submit)="login()" #form="ngForm">
+    <input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" required>
+    <button type="submit" [disabled]="!form.valid">Login</button>
+</form>
+
+<p><a href="/clear">Clear</a></p>
